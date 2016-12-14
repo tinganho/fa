@@ -154,7 +154,7 @@ Insertable component is components that you can insert in the markup of a view. 
 ## Page Rendering
 
 ### Definition
-A page, is defined as a render for a certain URL defined in the Page Manifestation.
+A *page*, is defined as a render for a certain URL defined in the *Page Manifestation*.
 
 ### Server-Side Rendering
 The page rendering begins with a Router reading a Page Manifestation. The router inspect which route is being requested and checks against the Page Manifestation, which layout and which models and views is being requested for a particular route. It fetches data for each Content View before assembling all the markup on the server side.
