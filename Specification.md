@@ -53,7 +53,7 @@ This layer only includes Component Views. You can read more about Component View
 *(A View Class is equivalent to a React Component Class. We use the terminology View instead of React’s Component, because we have Component Layer that includes Component Views. If we used React’s Component terminology we would call it Component Component Class, instead of Component View Class. Whether, we are using React is also in discussion.)*
 
 ### Document View Class
-A Base View for housing all the markup of the document. The Document View needs to include markup and styling for transitioning between layouts.
+Extends *Base View Class* for housing all the markup of the document. The Document View needs to include markup and styling for transitioning between layouts.
 
 ### Layout View Class
 Extends *Content Base View Class* for housing all the markup of the layout. Must include markup and styles for transitioning between contents. It also includes handlers for processing page transitions.
@@ -172,9 +172,9 @@ On the client side, the Client Router notifies the current Layout that there is 
 - If the new page has a different layout it makes a layout transition and inserts the new content.
 
 ### Page Manifestation
-The page manifestation just manifests on which route has which layout and model and views. 
+The page manifestation just manifests which route has which layout and model and views. It maps routes to models and views. 
 
-Here is an example:
+In the below example, we route a `LandingPageTopBarView` and `ResetPasswordFormView` to the route `/reset-password`:
 
 ```ts
 '/reset-password': page => {
@@ -237,6 +237,7 @@ The following example is an example of a Comment Model:
     },
 })
 export class Comment extends Model<CommentProps> {}
+
 let user = User.create({ id: 1, name: 'Anders'});
 let comment = Comment.create({ text: ‘hello world’. owner: user});
 comment.save();
@@ -323,7 +324,7 @@ This folder contains all Component Classes.
 This folder contains all configurations for both the server and the client and maybe other platforms. Each platform configuration should have its own file.
 
 ### Content
-The Content Classes will be stored in this folder. If the View Class and Data Class are highly related and independent of other View Classes and DataClasses. They can be grouped together in a subfolder.
+The Content Classes will be stored in this folder. If the *View Class* and *Data Class* are highly related and independent of other *View Classes* and *Data Classes*. They can be grouped together in a subfolder.
 
 ### Core
 Core represents that specific code for driving this architecture.
