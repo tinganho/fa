@@ -29,21 +29,21 @@ The Frontend Architecture supports client-side and server side rendering, some p
 The rendering pipeline goes through certain layers. Each layers has it own purpose in the rendering pipeline and they currently consists of Document-, Layout- and Content Layer. In each layer, there can only exists their respective views Document-, Layout- and Content Views. Dividing it into rendering layers helps the Router to keep track of and manipulate views during page transitions.
 
 <div style='float: center'>
-  <img style='width: 600px' src="Images/RenderingLayers.png"></img>
+  <img style='width: 600px' src="Images/RenderingLayers.png"/>
 </div>
 
 ### Document Layer
 The Document Layer consists of the abstract part of the page. It is here we put header data such as meta, script and style tags. The Document Layer has only one single placeholder for Layout Views.
 
 <div style='float: center'>
-  <img style='width: 150px' src="Images/DocumentLayer.png"></img>
+  <img style='width: 150px' src="Images/DocumentLayer.png"/>
 </div>
 
 ### Layout Layer
 The Layout Layer, as the name suggests, is the layout of a page. The layout has placeholders where Content Views can be placed. Note, the Layout Layer also includes an overlay as a placeholder to dialog windows and modal windows.
 
 <div style='float: center'>
-  <img style='width: 150px' src="Images/LayoutLayer.png"></img>
+  <img style='width: 150px' src="Images/LayoutLayer.png"/>
 </div>
 
 ### Content Layer
