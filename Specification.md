@@ -226,8 +226,7 @@ The Data Classes helps with data handling. They provide capabilities like fetchi
 ### Model Class
 Model represent data of single objects.
 
-
-The following example is an example of a Comment Model.
+The following example is an example of a Comment Model:
 
 ```ts
 @Model.attributes({
@@ -236,8 +235,7 @@ The following example is an example of a Comment Model.
         tags: Tags,
     },
 })
-export class Comment extends Model<CommentProps> {
-}
+export class Comment extends Model<CommentProps> {}
 let user = User.create({ id: 1, name: 'Anders'});
 let comment = Comment.create({ text: ‘hello world’. owner: user});
 comment.save();
@@ -264,14 +262,13 @@ comment.save();
 
 ### Collection Class
 Collection represents data of multiple objects.
+
 ```ts
 @Collection.attributes({
     model: Comment, // This registers Comment as the model for the collection
 })
-export class Comments extends Collection<Comment, any> {
-}
+export class Comments extends Collection<Comment, any> {}
 ```
-
 
 The collection can also subscribe on new(pushed) comments and load(pull) more comments.
 
