@@ -60,7 +60,9 @@ Extends *Content Base View Class* for housing all the markup of the layout. Must
 #### pushContent(content: ContentView): void; [OPTIONAL]
 Push content. Only available for stacked page layouts.
 
-<img width="250" src="Images/PushContent.png"></img>
+<div>
+    <img width="250" src="Images/PushContent.png"></img>
+</div>
 <i>The new content is stacked on top of the current content.</i>
 
 #### pushLoadingContent(content: ContentView): void; [OPTIONAL]
