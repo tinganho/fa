@@ -68,30 +68,30 @@ Push content. Only available for stacked page layouts.
 #### pushLoadingContent(content: ContentView): void; [OPTIONAL]
 Push content with a loading bar, until new content is loaded.
 
-<div style='float: center'>
-  <img style='width: 250px' src="Images/LoadingContent.png"></img>
+<div>
+    <img width="250" src="Images/LoadingContent.png"></img>
 </div>
 
 #### popContent(): void; [OPTIONAL]
 Pop content. The last content in the stack will be popped.
 
-<div style='float: center'>
-  <img style='width: 250px' src="Images/PopContent.png"></img>
+<div>
+    <img width="250" src="Images/PopContent.png"></img>
 </div>
 
 #### popAllContent(): void; [OPTIONAL]
 Pop all content, except the first.
 
-<div style='float: center'>
-  <img style='width: 250px' src="Images/PopAllContent.png"></img>
+<div>
+    <img width="250" src="Images/PopAllContent.png"></img>
 </div>
 <i>Pages popping or animating down.</i>
 
 #### replaceWithLoadingContent(content: ContentView): void; [OPTIONAL]
 Replace content with a loading bar, until new content is loaded.
 
-<div style='float: center'>
-  <img style='width: 250px' src="Images/LoadingContent.png"></img>
+<div>
+    <img width="250" src="Images/LoadingContent.png"></img>
 </div>
 <i>The current content is replaced with a loading bar that load the next content.</i>
 
@@ -104,8 +104,8 @@ Replace content.
 #### static setPageInfo(info: PageInfo, l: GetLocalization): void; [OPTIONAL]
 Set the page’s info. This includes title, description, keywords and image. A localization getter is inserted so you can also localize your strings.
 
-<div style='float: center'>
-  <img style='width: 400px' src="Images/PageInfo.png"></img>
+<div>
+    <img width="400" src="Images/PageInfo.png"></img>
 </div>
 <i>Title, description and image of a page in Gitlab*</i>
 
@@ -158,8 +158,8 @@ A page, is defined as a render for a certain URL defined in the Page Manifestati
 ### Server-Side Rendering
 The page rendering begins with a Router reading a Page Manifestation. The router inspect which route is being requested and checks against the Page Manifestation, which layout and which models and views is being requested for a particular route. It fetches data for each Content View before assembling all the markup on the server side.
 
-<div style='float: center'>
-  <img style='width: 500px' src="Images/PageManifestationWorkflow.png"></img>
+<div>
+  <img width="500" src="Images/PageManifestationWorkflow.png"></img>
 </div>
 
 ### Client-Side Rendering
