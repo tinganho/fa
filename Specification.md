@@ -28,30 +28,22 @@ The Frontend Architecture supports client-side and server side rendering, some p
 ## Rendering Layers 
 The rendering pipeline goes through certain layers. Each layers has it own purpose in the rendering pipeline and they currently consists of Document-, Layout- and Content Layer. In each layer, there can only exists their respective views Document-, Layout- and Content Views. Dividing it into rendering layers helps the Router to keep track of and manipulate views during page transitions.
 
-<div style='float: center'>
-  <img style='width: 600px' src="Images/RenderingLayers.png"></img>
-</div>
+<img width="600" src="Images/RenderingLayers.png"></img>
 
 ### Document Layer
 The Document Layer consists of the abstract part of the page. It is here we put header data such as meta, script and style tags. The Document Layer has only one single placeholder for Layout Views.
 
-<div style='float: center'>
-  <img style='width: 150px' src="Images/DocumentLayer.png"></img>
-</div>
+<img width="150" src="Images/DocumentLayer.png"></img>
 
 ### Layout Layer
 The Layout Layer, as the name suggests, is the layout of a page. The layout has placeholders where Content Views can be placed. Note, the Layout Layer also includes an overlay as a placeholder to dialog windows and modal windows.
 
-<div style='float: center'>
-  <img style='width: 150px' src="Images/LayoutLayer.png"></img>
-</div>
+<img width="150" src="Images/LayoutLayer.png"></img>
 
 ### Content Layer
 The Content Layer consists of HTML markup for the content. Or other Component Views.
 
-<div style='float: center'>
-  <img style='width: 150px' src="Images/ContentLayer.png"></img>
-</div>
+<img width="150" src="Images/ContentLayer.png"></img>
 
 ### ComponentLayer
 This layer only includes Component Views. You can read more about Component Views in the next chapter.
@@ -68,9 +60,7 @@ Extends *Content Base View Class* for housing all the markup of the layout. Must
 #### pushContent(content: ContentView): void; [OPTIONAL]
 Push content. Only available for stacked page layouts.
 
-<div style='float: center'>
-  <img style='width: 250px' src="Images/PushContent.png"></img>
-</div>
+<img width="250" src="Images/PushContent.png"></img>
 <i>The new content is stacked on top of the current content.</i>
 
 #### pushLoadingContent(content: ContentView): void; [OPTIONAL]
