@@ -171,15 +171,16 @@ The Base View Class extends [React Component]. It will provide the basic view en
 ## Default Components
 There are two types of default components. One for being used inside other components and one being called from inside Content View Class.
 
-### Callable Component
+### Callable Components
 The *Content View Class* has the method **alert(text: string)**. The alert view is a default *Callable Component*. *Callable Components* can only be referenced through method calls inside a *Content View Class*.
 
-### Insertable Component
-Insertable component is components that you can insert in the markup of a view. For instance, a link component:
+### Insertable Components
+*Insertable Component* is components that you can insert in the markup of a view. For instance, a link component:
 
 ```jsx
 <Link href='/path'/>
 ```
+
 ## Data Classes
 The Data Classes helps with data handling. They provide capabilities like fetching and registering on data events, serialization, deserialization, URL/JSON mapping, relation mapping. subscription of pushed data etc.
 
