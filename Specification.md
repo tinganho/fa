@@ -289,8 +289,7 @@ L10ns for workflow and formatting complex translation strings.
 <div>
     <img width="600" src="Images/L10ns.png"></img>
 </div>
-
-The localization getter l() will be injected into every Content View Class.
+<i>The localization getter l() will be injected into every Content View Class.</i>
 
 ## Styles
 
