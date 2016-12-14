@@ -20,13 +20,20 @@ Frontend Architecture
 * [Default Components](#default-components)
   * [Callable Components](#callable-components)
   * [Insertable Components](#insertable-components)
+* [Data Classes](#data-classes)
+  * [Model Class](#model-class)
+  * [Collection Class](#collection-class)
 * [Page Rendering](#page-rendering)
   * [Page Definition](#page-definition)
   * [Page Manifestation](#page-manifestation)
   * [Server-Side Rendering](#server-side-rendering)
   * [Client-Side Rendering](#client-side-rendering)
-
-
+* [Styles](#styles)
+  * [Selector Naming Convention](#selector-naming-convention)
+  * [State Selectors](#state-selectors)
+  * [Generic styles](#generic-styles)
+* [Internationalization](#internationalization)
+* [Folder Structure](#folder-structure)
 
 ## Goals
 The goal of the new frontend architecture:
@@ -173,47 +180,6 @@ Insertable component is components that you can insert in the markup of a view. 
 ```jsx
 <Link href='/path'/>
 ```
-
-## Page Rendering
-
-### Page Definition
-A *Page*, is defined as a render for a certain URL defined in the *Page Manifestation*.
-
-### Page Manifestation
-The page manifestation  manifests which route has which layout and model and views. It maps routes to models and views and inputs them in placeholders defined by the defined layout. 
-
-In the below example, we route a `LandingPageTopBarView` and `ResetPasswordFormView` to the route `/reset-password`:
-
-```ts
-'/reset-password': page => {
-    page.platform(OfflineWeb)
-        .layout(WebLandingPageLayout, {
-            Header: {
-                view: LandingPageTopBarView,
-            },
-            Body: {
-                view: ResetPasswordFormView,
-            },
-        })
-        .end();
-},
-```
-
-### Server-Side Rendering
-The page rendering begins with a *Router* reading a *Page Manifestation*. The router inspect which route is being requested and checks against the Page Manifestation, which layout and which models and views is being requested for a particular route. It fetches data for each *Content View* before assembling all the markup on the server side.
-
-<div>
-  <img width="800" src="Images/PageManifestationWorkflow.png"></img>
-</div>
-
-### Client-Side Rendering
-On the client side, the *Client Router* notifies the current Layout that there is a page transition occurring and calls **onBeforePageTransition**.
-
-- If the new page has the same Layout:
-    - If the layout has a stacked region for serving *Stacked Pages*: The *Client Router* calls the current layout method **pushContent** or **pushLoadingContent**, depending on if it is a static content or not.
-    - If the layout is only serving *Replacing Pages*: The *Client Router* calls the current layout method **replaceWithContent** or **replacetWithLoadingContent**, depending on if it is a static content or not.
-- If the new page has a different layout it makes a layout transition and inserts the new content.
-
 ## Data Classes
 The Data Classes helps with data handling. They provide capabilities like fetching and registering on data events, serialization, deserialization, URL/JSON mapping, relation mapping. subscription of pushed data etc.
 
@@ -277,12 +243,52 @@ comments.on('add', doSomething);
 ### Adapters
 For mapping from object to JSON we will need to develop adapters.
 
+## Page Rendering
+
+### Page Definition
+A *Page*, is defined as a render for a certain URL defined in the *Page Manifestation*.
+
+### Page Manifestation
+The page manifestation  manifests which route has which layout and model and views. It maps routes to models and views and inputs them in placeholders defined by the defined layout. 
+
+In the below example, we route a `LandingPageTopBarView` and `ResetPasswordFormView` to the route `/reset-password` and inserts the views into the layout `WebLandingPageLayout`:
+
+```ts
+'/reset-password': page => {
+    page.platform(OfflineWeb)
+        .layout(WebLandingPageLayout, {
+            Header: {
+                view: LandingPageTopBarView,
+            },
+            Body: {
+                view: ResetPasswordFormView,
+            },
+        })
+        .end();
+},
+```
+
+### Server-Side Rendering
+The page rendering begins with a *Router* reading a *Page Manifestation*. The router inspect which route is being requested and checks against the *Page Manifestation*, which layout and which models and views is being requested for a particular route. It fetches data for each *Content View* before assembling all the markup on the server side.
+
+<div>
+  <img width="800" src="Images/PageManifestationWorkflow.png"></img>
+</div>
+
+### Client-Side Rendering
+On the client side, the *Client Router* notifies the current Layout that there is a page transition occurring and calls **onBeforePageTransition**.
+
+- If the new page has the same Layout:
+    - If the layout has a stacked region for serving *Stacked Pages*: The *Client Router* calls the current layout method **pushContent** or **pushLoadingContent**, depending on if it is a static content or not.
+    - If the layout is only serving *Replacing Pages*: The *Client Router* calls the current layout method **replaceWithContent** or **replacetWithLoadingContent**, depending on if it is a static content or not.
+- If the new page has a different layout it makes a layout transition and inserts the new content.
+
 ## Internationalization
 L10ns for workflow and formatting complex translation strings.
 
 The localization getter l() will be injected into every Content View Class.
 
-## Styling
+## Styles
 
 ### Selector Naming Convention
 All selectors will be defined with using ComponentName[Selector] convention. 
@@ -312,6 +318,8 @@ State Selectors can be used for differentiate styles during different view state
     }
 }
 ```
+
+### Generic Styles
 
 ## Folder Structure
 This is the suggested folder structure of the project:
