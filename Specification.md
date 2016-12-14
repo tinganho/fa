@@ -22,9 +22,10 @@ The non-goals of the new architecture:
 1. Targeted to only one platform.
 
 ## Overview
-The Frontend Architecture supports client-side and server side rendering, some people might also know it as isomorphic rendering. We primarily use an MV architecture with the Controller sitting on the view(for updating view state on clicks etc). And a Router which is also a Controller in most architecture definitions is being processed through a client router and a server router depending on what is being requested. 
+The Frontend Architecture supports client-side and server side rendering, some people might also know it as *isomorphic rendering*. We primarily use a *MV architecture* with the *Controller* sitting on the view(for updating view state on clicks etc). And a *Router* which is also a *Controller* in most architecture definitions is being processed through a client router and a server router depending on what is being requested. 
 
 *Note, in recent years it’s quite common to move some of the controller’s tasks or roles into the view. Otherwise, the view have to pass events to the controller and let the controller handle those event. Nowadays, some tasks, such as handling click events are directly managed in the views.* 
+
 ## Rendering Layers 
 The rendering pipeline goes through certain layers. Each layers has it own purpose in the rendering pipeline and they currently consists of Document-, Layout- and Content Layer. In each layer, there can only exists their respective views Document-, Layout- and Content Views. Dividing it into rendering layers helps the Router to keep track of and manipulate views during page transitions.
 
