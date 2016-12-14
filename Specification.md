@@ -215,7 +215,6 @@ State Selectors can be used for differentiate styles during different view state
     position: absolute;
     width: 100%;
 
-
     &.Hidden {
          opacity: 0;
     }
