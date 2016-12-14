@@ -180,7 +180,7 @@ Insertable component is components that you can insert in the markup of a view. 
 A *Page*, is defined as a render for a certain URL defined in the *Page Manifestation*.
 
 ### Page Manifestation
-The page manifestation just manifests which route has which layout and model and views. It maps routes to models and views. 
+The page manifestation  manifests which route has which layout and model and views. It maps routes to models and views and inputs them in placeholders defined by the defined layout. 
 
 In the below example, we route a `LandingPageTopBarView` and `ResetPasswordFormView` to the route `/reset-password`:
 
@@ -200,14 +200,14 @@ In the below example, we route a `LandingPageTopBarView` and `ResetPasswordFormV
 ```
 
 ### Server-Side Rendering
-The page rendering begins with a Router reading a Page Manifestation. The router inspect which route is being requested and checks against the Page Manifestation, which layout and which models and views is being requested for a particular route. It fetches data for each Content View before assembling all the markup on the server side.
+The page rendering begins with a *Router* reading a *Page Manifestation*. The router inspect which route is being requested and checks against the Page Manifestation, which layout and which models and views is being requested for a particular route. It fetches data for each *Content View* before assembling all the markup on the server side.
 
 <div>
   <img width="800" src="Images/PageManifestationWorkflow.png"></img>
 </div>
 
 ### Client-Side Rendering
-On the client side, the Client Router notifies the current Layout that there is a page transition occurring and calls onBeforePageTransition.
+On the client side, the *Client Router* notifies the current Layout that there is a page transition occurring and calls **onBeforePageTransition**.
 
 - If the new page has the same Layout:
     - If the layout has a stacked region for serving *Stacked Pages*: The *Client Router* calls the current layout method **pushContent** or **pushLoadingContent**, depending on if it is a static content or not.
