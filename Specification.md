@@ -232,12 +232,12 @@ The following example is an example of a Comment Model:
 export class Comment extends Model<CommentProps> {}
 
 let user = User.create({ id: 1, name: 'Anders'});
-let comment = Comment.create({ text: ‘hello world’. owner: user});
+let comment = Comment.create({ text: 'hello world'. owner: user});
 comment.save();
 
 // HTTP POST:
 // {
-//    text: ‘hello world’,
+//    text: 'hello world',
 //    user:  1,
 // }
 ```
@@ -245,12 +245,12 @@ comment.save();
 When a saved object wants to update. A normal call to the save method will do the job:
 
 ```ts
-comment.set(‘text’, ‘hello siri!’);
+comment.set('text', 'hello siri!');
 comment.save();
 
 // HTTP PUT:
 // {
-//     text: ‘hello siri!’,
+//     text: 'hello siri!',
 //     user:  1,
 // }
 ```
