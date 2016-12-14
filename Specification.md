@@ -159,7 +159,7 @@ A page, is defined as a render for a certain URL defined in the Page Manifestati
 The page rendering begins with a Router reading a Page Manifestation. The router inspect which route is being requested and checks against the Page Manifestation, which layout and which models and views is being requested for a particular route. It fetches data for each Content View before assembling all the markup on the server side.
 
 <div>
-  <img width="500" src="Images/PageManifestationWorkflow.png"></img>
+  <img width="800" src="Images/PageManifestationWorkflow.png"></img>
 </div>
 
 ### Client-Side Rendering
