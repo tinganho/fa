@@ -4,6 +4,29 @@ Frontend Architecture
 ## Table of Contents
 * [Goals](#goals)
 * [Non-Goals](#non-goals)
+* [Overview](#overview)
+* [Rendering Layers](#rendering-layers)
+  * [Document Layer](#document-layer)
+  * [Layout Layer](#layout-layer)
+  * [Content Layer](#content-layer)
+  * [Component Layer](#component-layer)
+* [View Classes](#view-classes)
+  * [Document View Class](#document-view-class)
+  * [Layout View Class](#layout-view-class)
+  * [Content View Class](#content-view-class)
+  * [Content Base View Class](#content-base-view-class)
+  * [Component View Class](#component-view-class)
+  * [Base View Class](#base-view-class)
+* [Default Components](#default-components)
+  * [Callable Components](#callable-components)
+  * [Insertable Components](#insertable-components)
+* [Page Rendering](#page-rendering)
+  * [Page Definition](#page-definition)
+  * [Page Manifestation](#page-manifestation)
+  * [Server-Side Rendering](#server-side-rendering)
+  * [Client-Side Rendering](#client-side-rendering)
+
+
 
 ## Goals
 The goal of the new frontend architecture:
@@ -153,23 +176,8 @@ Insertable component is components that you can insert in the markup of a view. 
 
 ## Page Rendering
 
-### Definition
-A *page*, is defined as a render for a certain URL defined in the *Page Manifestation*.
-
-### Server-Side Rendering
-The page rendering begins with a Router reading a Page Manifestation. The router inspect which route is being requested and checks against the Page Manifestation, which layout and which models and views is being requested for a particular route. It fetches data for each Content View before assembling all the markup on the server side.
-
-<div>
-  <img width="800" src="Images/PageManifestationWorkflow.png"></img>
-</div>
-
-### Client-Side Rendering
-On the client side, the Client Router notifies the current Layout that there is a page transition occurring and calls onBeforePageTransition.
-
-- If the new page has the same Layout:
-    - If the layout has a stacked region for serving *Stacked Pages*: The *Client Router* calls the current layout method **pushContent** or **pushLoadingContent**, depending on if it is a static content or not.
-    - If the layout is only serving *Replacing Pages*: The *Client Router* calls the current layout method **replaceWithContent** or **replacetWithLoadingContent**, depending on if it is a static content or not.
-- If the new page has a different layout it makes a layout transition and inserts the new content.
+### Page Definition
+A *Page*, is defined as a render for a certain URL defined in the *Page Manifestation*.
 
 ### Page Manifestation
 The page manifestation just manifests which route has which layout and model and views. It maps routes to models and views. 
@@ -191,39 +199,24 @@ In the below example, we route a `LandingPageTopBarView` and `ResetPasswordFormV
 },
 ```
 
-## Styling
+### Server-Side Rendering
+The page rendering begins with a Router reading a Page Manifestation. The router inspect which route is being requested and checks against the Page Manifestation, which layout and which models and views is being requested for a particular route. It fetches data for each Content View before assembling all the markup on the server side.
 
-### Selector Naming Convention
-All selectors will be defined with using ComponentName[Selector] convention. 
+<div>
+  <img width="800" src="Images/PageManifestationWorkflow.png"></img>
+</div>
 
-```sass
-.FeedTitle { 
-    position: absolute;
-    width: 100%;
-}
+### Client-Side Rendering
+On the client side, the Client Router notifies the current Layout that there is a page transition occurring and calls onBeforePageTransition.
 
-.FeedDescription {
-    position: absolute;
-    width: 100%;
-}
-```
-
-### State Selectors
-State Selectors can be used for differentiate styles during different view states.
-
-```sass
-.FeedTitle { 
-    position: absolute;
-    width: 100%;
-
-    &.Hidden {
-         opacity: 0;
-    }
-}
-```
+- If the new page has the same Layout:
+    - If the layout has a stacked region for serving *Stacked Pages*: The *Client Router* calls the current layout method **pushContent** or **pushLoadingContent**, depending on if it is a static content or not.
+    - If the layout is only serving *Replacing Pages*: The *Client Router* calls the current layout method **replaceWithContent** or **replacetWithLoadingContent**, depending on if it is a static content or not.
+- If the new page has a different layout it makes a layout transition and inserts the new content.
 
 ## Data Classes
 The Data Classes helps with data handling. They provide capabilities like fetching and registering on data events, serialization, deserialization, URL/JSON mapping, relation mapping. subscription of pushed data etc.
+
 ### Model Class
 Model represent data of single objects.
 
@@ -288,6 +281,37 @@ For mapping from object to JSON we will need to develop adapters.
 L10ns for workflow and formatting complex translation strings.
 
 The localization getter l() will be injected into every Content View Class.
+
+## Styling
+
+### Selector Naming Convention
+All selectors will be defined with using ComponentName[Selector] convention. 
+
+```sass
+.FeedTitle { 
+    position: absolute;
+    width: 100%;
+}
+
+.FeedDescription {
+    position: absolute;
+    width: 100%;
+}
+```
+
+### State Selectors
+State Selectors can be used for differentiate styles during different view states.
+
+```sass
+.FeedTitle { 
+    position: absolute;
+    width: 100%;
+
+    &.Hidden {
+         opacity: 0;
+    }
+}
+```
 
 ## Folder Structure
 This is the suggested folder structure of the project:
