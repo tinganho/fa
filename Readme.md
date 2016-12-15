@@ -359,6 +359,10 @@ On the client side, the *Client Router* notifies the current Layout that there i
     - If the layout is only serving *Replacing Pages*: The *Client Router* calls the current layout method **replaceWithContent** or **replacetWithLoadingContent**, depending on if it is a static content or not.
 - If the new page has a different layout it makes a layout transition and inserts the new content.
 
+<div>
+    <img width="250" src="Images/LayoutChange.png"></img>
+</div>
+
 ## Internationalization
 L10ns for workflow and formatting complex translation strings.
 
