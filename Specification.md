@@ -472,7 +472,7 @@ Contains Document Classes.
 Contains Layout Classes.
 
 ### Library
-Libraries such as Model, Collection HTTPClient etc.
+Libraries such as `Model`, `Collection`, `HTTPClient` etc.
 
 ### Localizations
 Contains the storage of localization files.
