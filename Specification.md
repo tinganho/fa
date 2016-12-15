@@ -417,6 +417,7 @@ State Selectors can be used for differentiate styles during different view state
     position: absolute;
     width: 100%;
 
+    // A hidden view state render the title opacity to 0.
     .Feed.Hidden & {
          opacity: 0;
     }
