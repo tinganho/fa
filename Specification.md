@@ -424,6 +424,35 @@ State Selectors can be used for differentiate styles during different view state
 ```
 
 ### Generic Styles
+To achieve high level of DRYness in style code we use generic style classes. Styles that can be reused throughout the application. There is at least files for *animations*, *backgrounds*, *text*, *miscellaneous* etc.
+
+#### Color Styles
+We will predefine all colors in our application. Colors should hopefully never be hardcoded anywhere, except in the `colors.scss` file:
+
+```sass
+$black: #333333;
+$blue: #2B86CB;
+$grey: #B6B5BA;
+```
+
+If there is two different shades of one color we use numbers to separate.
+
+```sass
+$black1: #333;
+$black2: #444;
+```
+
+#### Text Styles
+For text styles we use [TypeSize_Color] naming convention for our selectors.
+
+```sass
+.H1_Blue {
+    color: $black;
+    font-weight: 200;
+    font-size: 16px;
+    line-height: 22px;
+}
+```
 
 ## Folder Structure
 This is the suggested folder structure of the project:
