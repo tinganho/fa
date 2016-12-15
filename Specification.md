@@ -88,6 +88,20 @@ Extends *Base View Class* for housing all the markup of the document. The Docume
 ### Layout View Class
 Extends *Content Base View Class* for housing all the markup of the layout. Must include markup and styles for transitioning between contents. It also includes handlers for processing page transitions.
 
+#### Required Markup for Layout View Class 
+The required markup for *Layout View Class* is to defined placeholders for *Content View Class* components.
+
+```jsx
+render() {
+    return (
+        <div class="TopBarBodyLayout">
+            <div class="TBBL_TopBar" placeholder="TopBar"></div>
+            <div class="TBBL_Body" placeholder="Body"></div>
+        </div>
+    );
+}
+```
+
 #### pushContent(content: ContentView): void; [OPTIONAL]
 Push content. Only available for stacked page layouts.
 
