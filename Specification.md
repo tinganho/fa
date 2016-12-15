@@ -337,7 +337,7 @@ class MyComponent extends ContentView<P, S> {
 ## Styles
 
 ### Selector Naming Convention
-All selectors will be defined with using ComponentName[Selector] convention. 
+All root element **MUST** be assigned with a selector named after the component. All sub-elements will have the component name's acronym as prefix in their selector.
 
 ```jsx
 render() {
