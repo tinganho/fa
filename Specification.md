@@ -23,6 +23,7 @@ Frontend Architecture
 * [Data Classes](#data-classes)
   * [Model Class](#model-class)
   * [Collection Class](#collection-class)
+  * [Adapters](#adapters)
 * [Page Rendering](#page-rendering)
   * [Page Definition](#page-definition)
   * [Page Manifestation](#page-manifestation)
@@ -214,7 +215,7 @@ class MyComponent extends ContentView<P, S> {
 ```
 
 ## Data Classes
-The Data Classes helps with data handling. They provide capabilities like fetching and registering on data events, serialization, deserialization, URL/JSON mapping, relation mapping. subscription of pushed data etc.
+The *Data Classes* helps with data handling. They provide capabilities like fetching and registering on data events, serialization, deserialization, URL/JSON mapping, relation mapping. subscription of pushed data etc.
 
 ### Model Class
 Model represent data of single objects.
@@ -230,8 +231,8 @@ The following example is an example of a Comment Model:
 })
 export class Comment extends Model<CommentProps> {}
 
-let user = User.create({ id: 1, name: 'Anders'});
-let comment = Comment.create({ text: 'hello world'. owner: user});
+let user = User.create({ id: 1, name: 'Anders' });
+let comment = Comment.create({ text: 'hello world'. owner: user });
 comment.save();
 
 // HTTP POST:
@@ -274,7 +275,49 @@ comments.on('add', doSomething);
 ```
 
 ### Adapters
-For mapping from object to JSON we will need to develop adapters.
+We use *Adapters* for mapping object to JSON or the other way around to communicate with a *Backend Service*.
+
+```ts
+const defaultModelAdapater: ModelAdapter = {
+    adaptFetchResponseData: (data) => {
+        return data.body;
+    },
+    adaptSaveRequestData: (model) => {
+        return {
+            method: 'post',
+            data: model.serialize(),
+        };
+    },
+    adaptSaveResponseData: (data) => {
+        return model.serialize();
+    },
+    adaptUpdateRequestData: (model) => {
+        return {
+            method: 'put',
+            model.serialize(),
+        }
+    },
+    adaptUpdateResponseData: (data) => {
+        return data.body;
+    },
+};
+const defaultCollectionAdapater: CollectionAdapter = {
+    adaptFetchResponseData: (data) => {
+        return data.body;
+    },
+    adaptPushResponseData: (data) => {
+        return data.body;
+    },
+};
+const defaultErrorAdapter: ErrorResponseAdapter = (data) => {
+    return data.body;
+};
+let globalAdapter: Adapter = {
+    model: defaultModelAdapater,
+    collection: defaultCollectionAdapater,
+    error: defaultErrorAdapter,
+}
+``` 
 
 ## Page Rendering
 
