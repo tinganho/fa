@@ -322,7 +322,17 @@ L10ns for workflow and formatting complex translation strings.
 <div>
     <img width="600" src="Images/L10ns.png"></img>
 </div>
-<i>The localization getter l() will be injected into every Content View Class.</i>
+
+### Localization Getter
+The localization getter `l()` will be injected into every *Content View Class* and can be accessed with `this.l`.
+
+```ts
+class MyComponent extends ContentView<P, S> {
+    render() {
+        return (<div>{this.l('HELLO_WORLD')}<div/>);
+    }
+}
+```
 
 ## Styles
 
