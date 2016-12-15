@@ -362,6 +362,7 @@ On the client side, the *Client Router* notifies the current Layout that there i
 <div>
     <img width="250" src="Images/LayoutChange3.png"></img>
 </div>
+<i>A layout change from a vertical columns to horizontal row sections.</i>
 
 ## Internationalization
 L10ns for workflow and formatting complex translation strings.
