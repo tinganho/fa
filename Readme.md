@@ -444,7 +444,7 @@ $black2: #444;
 ```
 
 #### Text Styles
-For text styles we use [TypeSize_Color] naming convention for our selectors.
+For text styles we use **[TypeSize_Color]** naming convention for our selectors.
 
 ```sass
 .H1_Blue {
