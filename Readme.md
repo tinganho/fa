@@ -360,7 +360,7 @@ On the client side, the *Client Router* notifies the current Layout that there i
 - If the new page has a different layout it makes a layout transition and inserts the new content.
 
 <div>
-    <img width="250" src="Images/LayoutChange.png"></img>
+    <img width="250" src="Images/LayoutChange2.png"></img>
 </div>
 
 ## Internationalization
