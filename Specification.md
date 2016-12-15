@@ -297,13 +297,28 @@ L10ns for workflow and formatting complex translation strings.
 ### Selector Naming Convention
 All selectors will be defined with using ComponentName[Selector] convention. 
 
+```jsx
+render() {
+    return (
+        <div class='Feed'>
+            <div class='F_Title'>{this.props.title}</div>
+            <div class='F_Description'>{this.props.description}</div>
+        </div>
+    );
+}
+```
 ```sass
-.FeedTitle { 
+.Feed {
     position: absolute;
     width: 100%;
 }
 
-.FeedDescription {
+.F_Title { 
+    position: absolute;
+    width: 100%;
+}
+
+.F_Description {
     position: absolute;
     width: 100%;
 }
@@ -313,11 +328,11 @@ All selectors will be defined with using ComponentName[Selector] convention.
 State Selectors can be used for differentiate styles during different view states.
 
 ```sass
-.FeedTitle { 
+.F_Title { 
     position: absolute;
     width: 100%;
 
-    &.Hidden {
+    .Feed.Hidden & {
          opacity: 0;
     }
 }
