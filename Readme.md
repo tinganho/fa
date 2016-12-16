@@ -361,7 +361,7 @@ On the client side, the *Client Router* notifies the current Layout that there i
 - If the new page has a different layout it makes a layout transition and inserts the new content.
 
 <div>
-    <img width="250" src="Images/LayoutChange3.png"></img>
+    <img width="250" src="Images/LayoutChange.png"></img>
 </div>
 <i>A layout change from a vertical columns to horizontal row sections.</i>
 
