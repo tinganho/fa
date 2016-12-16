@@ -349,7 +349,7 @@ In the below example, we route a `LandingPageTopBarView` and `ResetPasswordFormV
 The page rendering begins with a *Router* reading a *Page Manifestation*. The router inspect which route is being requested and checks against the *Page Manifestation*, which layout and which models and views is being requested for a particular route. It fetches data for each *Content View* before assembling all the markup on the server side.
 
 <div>
-  <img width="800" src="Images/PageManifestationWorkflow.png"></img>
+  <img width="800" src="Images/PageManifestFlow.png"></img>
 </div>
 
 ### Client-Side Rendering
