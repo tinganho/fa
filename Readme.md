@@ -34,6 +34,7 @@ Frontend Architecture
   * [State Selectors](#state-selectors)
   * [Generic styles](#generic-styles)
 * [Internationalization](#internationalization)
+  * [Localization Getter](#localization-getter)
 * [Folder Structure](#folder-structure)
 
 ## Goals
@@ -275,7 +276,7 @@ comments.on('add', doSomething);
 ```
 
 ### Adapters
-We use *Adapters* for mapping object to JSON or the other way around to communicate with a *Backend Service*.
+We use *Adapters* for mapping objects to JSON or the other way around to communicate with a *Backend Service*.
 
 ```ts
 const defaultModelAdapater: ModelAdapter = {
@@ -317,7 +318,7 @@ let globalAdapter: Adapter = {
     collection: defaultCollectionAdapater,
     error: defaultErrorAdapter,
 }
-``` 
+```
 
 ## Page Rendering
 
@@ -385,7 +386,7 @@ class MyComponent extends ContentView<P, S> {
 ## Styles
 
 ### Selector Naming Convention
-All root element **MUST** be assigned with a selector named after the component. All sub-elements will have the component name's acronym as prefix in their selector.
+All root elements **MUST** be assigned with a selector named after the component. All sub-elements will have the component name's acronym as prefix in their selector. All names must be in pascal casing, acronyms must be in all capital letters.
 
 ```jsx
 render() {
@@ -397,6 +398,7 @@ render() {
     );
 }
 ```
+
 ```sass
 .Feed {
     position: absolute;
