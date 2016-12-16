@@ -66,17 +66,17 @@ The rendering pipeline goes through certain layers. Each layers has it own purpo
 ### Document Layer
 The Document Layer consists of the abstract part of the page. It is here we put header data such as meta, script and style tags. The Document Layer has only one single placeholder for Layout Views.
 
-<img width="150" src="Images/DocumentLayer.png"></img>
+<img width="250" src="Images/DocumentLayer.png"></img>
 
 ### Layout Layer
 The Layout Layer, as the name suggests, is the layout of a page. The layout has placeholders where Content Views can be placed. Note, the Layout Layer also includes an overlay as a placeholder to dialog windows and modal windows.
 
-<img width="150" src="Images/LayoutLayer.png"></img>
+<img width="250" src="Images/LayoutLayer.png"></img>
 
 ### Content Layer
 The Content Layer consists of HTML markup for the content. Or other Component Views.
 
-<img width="150" src="Images/ContentLayer.png"></img>
+<img width="250" src="Images/ContentLayer.png"></img>
 
 ### ComponentLayer
 This layer only includes Component Views. You can read more about Component Views in the next chapter.
